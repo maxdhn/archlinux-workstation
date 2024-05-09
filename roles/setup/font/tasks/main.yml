@@ -2,6 +2,8 @@
   become: true
   community.general.pacman:
     name:
+      - ttf-nerd-fonts-symbols
+      - ttf-nerd-fonts-symbols-mono
       - ttf-firacode-nerd
 
 # This because of extensive use of the --print-format :
