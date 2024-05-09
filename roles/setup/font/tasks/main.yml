@@ -2,14 +2,7 @@
   become: true
   community.general.pacman:
     name:
-      - awesome-terminal-fonts
-      - ttf-font-awesome
-      - ttf-dejavu
-      - ttf-droid
-      - ttf-nerd-fonts-symbols-common
-      - ttf-roboto-mono
-      - noto-fonts-cjk
-      - noto-fonts-emoji
+      - ttf-firacode-nerd
 
 # This because of extensive use of the --print-format :
 # https://docs.ansible.com/ansible/latest/collections/community/general/pacman_module.html#parameter-executable

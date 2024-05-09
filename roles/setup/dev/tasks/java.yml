@@ -2,5 +2,5 @@
   become: true
   community.general.pacman:
     name:
-      - jdk11-openjdk
+      - jdk21-openjdk
       - maven

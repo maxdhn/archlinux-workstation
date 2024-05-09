@@ -2,8 +2,11 @@
   become: true
   community.general.pacman:
     name:
-      - vim
-      - code
+      - neovim
+      - lazygit
+      - ripgrep
+      - bottom
+      - gdu
 
 - name: Copy vim bash_profile
   ansible.builtin.copy:
@@ -16,3 +19,24 @@
     src: vim.bashrc
     dest: ~/.bashrc.d/
     mode: '644'
+
+- name: Clean nvim config files
+  ansible.builtin.file:
+    path: '{{ item }}'
+    state: absent
+  with_items:
+    - ~/.config/nvim
+    - ~/.local/share/nvim
+    - ~/.local/state/nvim
+    - ~/.cache/nvim
+
+- name: Setup AstroNvim
+  ansible.builtin.git:
+    repo: 'https://github.com/AstroNvim/template'
+    dest: ~/.config/nvim
+    depth: 1
+
+- name: Remove AstroNvim git connection
+  ansible.builtin.file:
+    path: ~/.config/nvim/.git
+    state: absent

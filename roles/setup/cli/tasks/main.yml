@@ -26,7 +26,6 @@
     dest: ~/.bashrc.d/
     mode: '0644'
 
-
 - name: Copy fzf bashrc
   ansible.builtin.copy:
     src: fzf.bashrc

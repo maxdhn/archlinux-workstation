@@ -3,7 +3,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux ls | grep -v attached && tmux attach || tmux"
+    - 'tmux ls | grep -v attached && tmux attach || tmux'
 
 font:
   normal:
