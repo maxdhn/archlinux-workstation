@@ -2,7 +2,6 @@
   become: true
   community.general.pacman:
     name:
-      - reflector
       - xf86-input-synaptics
       - bluez
       - bluez-utils
@@ -37,10 +36,3 @@
     creates: /usr/bin/ebtables
   tags:
     - skip_ansible_lint # can't use set -o pipefail
-
-- name: Enable reflector systemd service
-  become: true
-  ansible.builtin.systemd:
-    name: reflector.timer
-    enabled: true
-  ignore_errors: '{{ ansible_check_mode }}'

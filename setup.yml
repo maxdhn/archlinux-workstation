@@ -1,5 +1,9 @@
 - name: Setup
   hosts: all
+  pre_tasks:
+  - name: Ensure package repository is up-to-date
+    include_role:
+      name: update_repo
   vars:
     ansible_user: '{{ unix_username }}'
     ansible_ssh_pass: '{{ unix_password }}'

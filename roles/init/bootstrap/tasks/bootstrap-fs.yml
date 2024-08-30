@@ -1,5 +1,5 @@
 - name: Set mirrors
-  ansible.builtin.command: reflector --verbose --save /etc/pacman.d/mirrorlist --latest 5 --protocol https --sort age
+  ansible.builtin.command: reflector --verbose --save /etc/pacman.d/mirrorlist --score 10 --fastest 5 --protocol https --sort age
   changed_when: true
 
 - name: Copy pacman configuration file

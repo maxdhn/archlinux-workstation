@@ -1,0 +1,26 @@
+- name: Update Pacman database
+  become: true
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+
+- name: Install reflector package
+  become: true
+  community.general.pacman:
+    name:
+      - reflector
+
+- name: Copy reflector configuration file
+  become: true
+  ansible.builtin.copy:
+    src: reflector.conf
+    dest: /etc/xdg/reflector/
+    mode: '0644'
+
+- name: Enable reflector systemd service
+  become: true
+  ansible.builtin.systemd:
+    name: reflector.timer
+    enabled: true
+  ignore_errors: '{{ ansible_check_mode }}'
+
