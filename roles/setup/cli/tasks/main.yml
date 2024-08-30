@@ -13,6 +13,8 @@
       - nmap
       - tcpdump
       - fwupd
+      - fd
+      - yazi
 
 - name: Copy bat bashrc
   ansible.builtin.copy:

@@ -30,13 +30,13 @@
     - ~/.local/state/nvim
     - ~/.cache/nvim
 
-- name: Setup AstroNvim
+- name: Setup nvim
   ansible.builtin.git:
-    repo: 'https://github.com/AstroNvim/template'
+    repo: 'https://github.com/maxdhn/nvim-config'
     dest: ~/.config/nvim
     depth: 1
 
-- name: Remove AstroNvim git connection
-  ansible.builtin.file:
-    path: ~/.config/nvim/.git
-    state: absent
+# - name: Remove AstroNvim git connection
+#   ansible.builtin.file:
+#     path: ~/.config/nvim/.git
+#     state: absent
